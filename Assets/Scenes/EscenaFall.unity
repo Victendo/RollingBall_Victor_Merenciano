@@ -3456,7 +3456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 1
+  m_BindingMode: 4
   m_FollowOffset: {x: 0, y: 0, z: -10}
   m_XDamping: 1
   m_YDamping: 1
@@ -3602,7 +3602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5b6d2df3e756247b41bab9df104a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movimiento: {x: 1, y: 0, z: 0}
+  fuerzaMovimiento: 20
+  fuerzaSalto: 10
 --- !u!33 &1646831482
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4018,8 +4019,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 1646831483}
+  m_Follow: {fileID: 1646831483}
   m_Lens:
     FieldOfView: 60.000004
     OrthographicSize: 5
