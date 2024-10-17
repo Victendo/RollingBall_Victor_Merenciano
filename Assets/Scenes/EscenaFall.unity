@@ -3286,8 +3286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5b6d2df3e756247b41bab9df104a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuerzaMovimiento: 20
+  rb: {fileID: 1646831485}
+  velocidad: 10
   fuerzaSalto: 10
+  fuerzaMovimiento: 0
 --- !u!33 &1646831482
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3340,7 +3342,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646831478}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

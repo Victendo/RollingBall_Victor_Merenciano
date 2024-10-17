@@ -5,36 +5,43 @@ using UnityEngine.UIElements;
 
 public class Bola : MonoBehaviour
 {
-    Rigidbody rb;
-    [SerializeField] float fuerzaMovimiento;
-    [SerializeField] float fuerzaSalto;
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private int velocidad;
+    [SerializeField] private int fuerzaSalto;
+    [SerializeField] private int fuerzaMovimiento;
     private float h, v;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Application.targetFrameRate = 60;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-        Saltar();
+        Salto();
+
     }
 
     private void FixedUpdate()
     {
-        rb.AddForce(new Vector3(h, 0, v).normalized * fuerzaMovimiento, ForceMode.Force);
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+        rb.AddForce (new Vector3(-h, 0, - v).normalized * velocidad, ForceMode.Force);
+        
+
+       
+
     }
 
-    void Saltar()
+    void Salto()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse);
         }
     }
+
+   
 }
