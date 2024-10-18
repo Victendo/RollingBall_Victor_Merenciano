@@ -43,5 +43,13 @@ public class Bola : MonoBehaviour
         }
     }
 
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Moneda"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
+
 }

@@ -23,8 +23,6 @@ public class PlataformaMovil : MonoBehaviour
             {
             movimientoIda = -movimientoIda;
                 timer = 0;
-              
-
             }
         
 
