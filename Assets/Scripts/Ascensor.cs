@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlataformaMovil : MonoBehaviour
+public class Ascensor : MonoBehaviour
 {
     [SerializeField] float velocidad;
     [SerializeField] Vector3 movimiento;
@@ -17,16 +17,11 @@ public class PlataformaMovil : MonoBehaviour
     void Update()
     {
         transform.Translate(movimiento * velocidad * Time.deltaTime);
-            timer += 1 * Time.deltaTime;
-            if (timer >= 6)
-            {
+        timer += 1 * Time.deltaTime;
+        if (timer >= 3)
+        {
             movimiento = -movimiento;
-                timer = 0;
-            }
-        
-
-       
-        
-
+            timer = 0;
+        }
     }
 }

@@ -28,7 +28,7 @@ public class Bola : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        rb.AddForce (new Vector3(-h, 0, - v).normalized * velocidad, ForceMode.Force);
+        rb.AddForce (new Vector3(h, 0, v).normalized * velocidad, ForceMode.Force);
         
 
        
