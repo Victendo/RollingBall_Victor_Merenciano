@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
+
 
 public class Bola : MonoBehaviour
 {
@@ -9,7 +11,10 @@ public class Bola : MonoBehaviour
     [SerializeField] private int velocidad;
     [SerializeField] private int fuerzaSalto;
     [SerializeField] private int fuerzaMovimiento;
+    [SerializeField] private int vidaActual;
+    [SerializeField] private TMP_Text textoVida;
     private float h, v;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +55,19 @@ public class Bola : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Trampa")
+        {
+            //Al objeto trampa le cojo el script "Trampa"
+
+            vidaActual -= collision.gameObject.GetComponent<Trampa>().Daño;
+
+        }
+    }
+
+
+
 
 
 }
