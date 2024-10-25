@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 
 public class Bola : MonoBehaviour
@@ -11,15 +11,17 @@ public class Bola : MonoBehaviour
     [SerializeField] private int velocidad;
     [SerializeField] private int fuerzaSalto;
     [SerializeField] private int fuerzaMovimiento;
-    [SerializeField] private int vidaActual;
-    [SerializeField] private TMP_Text textoVida;
     private float h, v;
+
+    [SerializeField] private int vidaActual;
+    [SerializeField] private int vidaMaxima = 100;
+    [SerializeField] private TMP_Text textoVida;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+        vidaActual = vidaMaxima;
     }
 
     // Update is called once per frame
@@ -59,10 +61,9 @@ public class Bola : MonoBehaviour
     {
         if(collision.gameObject.tag == "Trampa")
         {
-            //Al objeto trampa le cojo el script "Trampa"
-
             vidaActual -= collision.gameObject.GetComponent<Trampa>().Daño;
-
+            textoVida.SetText(vidaActual.ToString());
+           
         }
     }
 

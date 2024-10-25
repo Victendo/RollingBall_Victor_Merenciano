@@ -7,7 +7,7 @@ using TMPro;
 public class Trampa : MonoBehaviour
 {
 
-    [SerializeField] private int daño = 10;
+    [SerializeField] private int daño = 1;
 
     public int Daño { get => daño;}
 
