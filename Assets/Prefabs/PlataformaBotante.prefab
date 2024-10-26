@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6794379575625665849
+--- !u!1 &500264451066182934
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,64 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7912448002061896454}
-  - component: {fileID: -8050951689945237497}
-  - component: {fileID: 4539649174976573315}
-  - component: {fileID: 5171758551080176325}
-  - component: {fileID: 9040491424672718834}
+  - component: {fileID: 2791127507286539911}
+  - component: {fileID: 432815838789452013}
+  - component: {fileID: 1320127150050499309}
+  - component: {fileID: 453910165398259439}
   m_Layer: 0
-  m_Name: Moneda
-  m_TagString: Moneda
+  m_Name: PlataformaBotante
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7912448002061896454
+--- !u!4 &2791127507286539911
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6794379575625665849}
+  m_GameObject: {fileID: 500264451066182934}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -46.45, y: 13.35, z: 0.76}
-  m_LocalScale: {x: 1.495, y: 0.063687, z: 1.495}
+  m_LocalRotation: {x: 0.00000003095633, y: -0.70710653, z: 0.000000057110956, w: -0.7071071}
+  m_LocalPosition: {x: -45.4843, y: 6.94, z: 192.0864}
+  m_LocalScale: {x: 10.247795, y: 0.2197, z: 11.644854}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &-8050951689945237497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6794379575625665849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 905b8d68523732e4d91bc299cc7b786c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidadRotacion: 5
-  movimientoRotacion: {x: 0, y: 0, z: 45}
-  movimientoPosicion: {x: 0, y: 0, z: -0.05}
-  velocidadPosicion: 10
---- !u!33 &4539649174976573315
+  m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
+--- !u!33 &432815838789452013
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6794379575625665849}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5171758551080176325
+  m_GameObject: {fileID: 500264451066182934}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1320127150050499309
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6794379575625665849}
+  m_GameObject: {fileID: 500264451066182934}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -101,14 +84,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9040491424672718834
+--- !u!65 &453910165398259439
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6794379575625665849}
-  m_Material: {fileID: 0}
+  m_GameObject: {fileID: 500264451066182934}
+  m_Material: {fileID: 13400000, guid: 450986c84714f774f87554def20e96e8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -116,9 +99,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 2, z: 1.0000004}
-  m_Center: {x: 0.00000005960465, y: 0, z: -0.00000008940698}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
