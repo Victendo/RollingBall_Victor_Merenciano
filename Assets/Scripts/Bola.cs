@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class Bola : MonoBehaviour
@@ -17,17 +18,25 @@ public class Bola : MonoBehaviour
     [SerializeField] private int vidaMaxima = 100;
     [SerializeField] private TMP_Text textoVida;
 
+    [SerializeField] private int monedasActuales;
+    [SerializeField] private TMP_Text textoMonedas;
+
+    [SerializeField] private bool youLost;
+    [SerializeField] private GameObject derrotaMenuUI;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         vidaActual = vidaMaxima;
+        monedasActuales = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         Salto();
+        MenuDerrota();
 
     }
 
@@ -55,6 +64,8 @@ public class Bola : MonoBehaviour
         if(other.gameObject.CompareTag("Moneda"))
         {
             Destroy(other.gameObject);
+            monedasActuales = monedasActuales + 1;
+            textoMonedas.SetText(monedasActuales.ToString());
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -65,6 +76,40 @@ public class Bola : MonoBehaviour
             textoVida.SetText(vidaActual.ToString());
            
         }
+    }
+
+    void MenuDerrota()
+    {
+        if (vidaActual <= 0)
+        {
+            youLost = !youLost;
+        }
+
+        if (youLost)
+        {
+            ActivateMenu();
+        }
+
+    }
+
+    public void ActivateMenu()
+    {
+        derrotaMenuUI.SetActive(true);
+        Time.timeScale = 0;
+        AudioListener.pause = true;
+    }
+
+    public void DesactivarMenu()
+    {
+        derrotaMenuUI.SetActive(false);
+        Time.timeScale = 0;
+        AudioListener.pause = false;
+        youLost = false;
+    }
+
+    public void SalirJuego()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
 
