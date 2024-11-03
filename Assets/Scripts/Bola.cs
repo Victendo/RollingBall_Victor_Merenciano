@@ -99,14 +99,6 @@ public class Bola : MonoBehaviour
         AudioListener.pause = true;
     }
 
-    public void DesactivarMenu()
-    {
-        derrotaMenuUI.SetActive(false);
-        Time.timeScale = 0;
-        AudioListener.pause = false;
-        youLost = false;
-    }
-
     public void SalirJuego()
     {
         SceneManager.LoadScene("Menu");
