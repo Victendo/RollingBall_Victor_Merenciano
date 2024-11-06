@@ -24,6 +24,9 @@ public class Bola : MonoBehaviour
     [SerializeField] private bool youLost;
     [SerializeField] private GameObject derrotaMenuUI;
 
+    [SerializeField] private GameObject victoriaMenuUI;
+    [SerializeField] private bool youWin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +70,8 @@ public class Bola : MonoBehaviour
             monedasActuales = monedasActuales + 1;
             textoMonedas.SetText(monedasActuales.ToString());
         }
+
+        
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -75,6 +80,12 @@ public class Bola : MonoBehaviour
             vidaActual -= collision.gameObject.GetComponent<Trampa>().Daño;
             textoVida.SetText(vidaActual.ToString());
            
+        }
+
+        if (collision.gameObject.tag == "Victoria")
+        {
+            youWin = !youWin;
+            MenuVictoria();
         }
     }
 
@@ -102,6 +113,21 @@ public class Bola : MonoBehaviour
     public void SalirJuego()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void MenuVictoria()
+    {
+        if (youWin)
+        {
+            ActivateVictoria();
+        }
+    }
+
+    public void ActivateVictoria()
+    {
+        victoriaMenuUI.SetActive(true);
+        Time.timeScale = 0;
+        AudioListener.pause = true;
     }
 
 
