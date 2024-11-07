@@ -18,8 +18,9 @@ public class Bola : MonoBehaviour
     [SerializeField] private int vidaMaxima = 100;
     [SerializeField] private TMP_Text textoVida;
 
-    [SerializeField] private int monedasActuales;
+    [SerializeField] private int monedasActuales = 0;
     [SerializeField] private TMP_Text textoMonedas;
+    [SerializeField] private AudioSource musicaMonedas;
 
     [SerializeField] private bool youLost;
     [SerializeField] private GameObject derrotaMenuUI;
@@ -27,12 +28,21 @@ public class Bola : MonoBehaviour
     [SerializeField] private GameObject victoriaMenuUI;
     [SerializeField] private bool youWin;
 
+    [SerializeField] private GameObject sinMonedasMenuUI;
+    [SerializeField] private bool noCoins;
+
+    [SerializeField] private GameObject contadorMonedasMenuUI;
+    [SerializeField] private TMP_Text contarMonedas;
+    [SerializeField] private bool countCoins;
+
+    [SerializeField] private GameObject todasLasMonedasMenuUI;
+    [SerializeField] private bool allCoins;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         vidaActual = vidaMaxima;
-        monedasActuales = 0;
     }
 
     // Update is called once per frame
@@ -66,8 +76,9 @@ public class Bola : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Moneda"))
         {
+            musicaMonedas.Play();
             Destroy(other.gameObject);
-            monedasActuales = monedasActuales + 1;
+            monedasActuales++; ;
             textoMonedas.SetText(monedasActuales.ToString());
         }
 
@@ -86,6 +97,24 @@ public class Bola : MonoBehaviour
         {
             youWin = !youWin;
             MenuVictoria();
+
+            if (monedasActuales <= 0)
+            {
+                noCoins = !noCoins;
+                SinMonedas();
+            }
+
+            if (monedasActuales > 0 && monedasActuales < 62)
+            {
+                countCoins = !countCoins;
+                ContadorMonedas();
+            }
+
+            if (monedasActuales >= 62)
+            {
+                allCoins = !allCoins;
+                TodasMonedas();
+            }
         }
     }
 
@@ -126,6 +155,28 @@ public class Bola : MonoBehaviour
     public void ActivateVictoria()
     {
         victoriaMenuUI.SetActive(true);
+        Time.timeScale = 0;
+        AudioListener.pause = true;
+    }
+
+    public void SinMonedas()
+    {
+        sinMonedasMenuUI.SetActive(true);
+        Time.timeScale = 0;
+        AudioListener.pause = true;
+    }
+
+    public void ContadorMonedas()
+    {
+        contadorMonedasMenuUI.SetActive(true);
+        contarMonedas.SetText("Has conseguido: " + monedasActuales.ToString() + " monedas");
+        Time.timeScale = 0;
+        AudioListener.pause = true;
+    }
+
+    public void TodasMonedas()
+    {
+        todasLasMonedasMenuUI.SetActive(true);
         Time.timeScale = 0;
         AudioListener.pause = true;
     }

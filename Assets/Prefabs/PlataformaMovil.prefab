@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6734694e0d3c23a41908c3a2c512693d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 1.5
+  velocidad: 1
   movimiento: {x: 0, y: 0, z: -5.5}
 --- !u!23 &6543973229579978396
 MeshRenderer:
