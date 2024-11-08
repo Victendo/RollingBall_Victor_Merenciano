@@ -14,6 +14,9 @@ public class Bola : MonoBehaviour
     [SerializeField] private int fuerzaMovimiento;
     private float h, v;
 
+    [SerializeField] private AudioSource sonidoSalto;
+    [SerializeField] private AudioSource sonidoDolor;
+
     [SerializeField] private int vidaActual;
     [SerializeField] private int vidaMaxima = 100;
     [SerializeField] private TMP_Text textoVida;
@@ -68,6 +71,7 @@ public class Bola : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            sonidoSalto.Play();
             rb.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse);
         }
     }
@@ -88,6 +92,7 @@ public class Bola : MonoBehaviour
     {
         if(collision.gameObject.tag == "Trampa")
         {
+            sonidoDolor.Play();
             vidaActual -= collision.gameObject.GetComponent<Trampa>().Daño;
             textoVida.SetText(vidaActual.ToString());
            

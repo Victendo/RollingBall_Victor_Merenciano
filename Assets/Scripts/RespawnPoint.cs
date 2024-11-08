@@ -11,12 +11,14 @@ public class RespawnPoint : MonoBehaviour
     [SerializeField] private GameObject camaraSegunda;
     [SerializeField] private bool estadoCamaraFollow  = true;
     [SerializeField] private bool estadoCamaraSegunda = false;
+    [SerializeField] private AudioSource grito;
 
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag=="Player")
         {
+            grito.Play();
             player.transform.position = respawnPoint.transform.position;
             Physics.SyncTransforms();
             camaraFollow.SetActive(estadoCamaraFollow);
